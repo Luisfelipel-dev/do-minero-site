@@ -1,58 +1,69 @@
-/* CONFIGURAÇÃO GERAL */
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #ffffff;
+  background: #fff;
 }
 
-/* HEADER */
-
-header {
-  background: blue;
-  color: white;
-  text-align: center;
-  padding: 50px;
+header .logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  height: auto;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 40px;
-}
-
-header p {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-/* BANNER */
-
-.banner {
+/* Banner com fade */
+.banner-container {
+  position: relative;
   height: 450px;
-  background-image: url("./imagens/banner.jpeg");
+  overflow: hidden;
+  margin-top: -10px; 
+}
+
+.banner-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.banner-slide.active {
+  opacity: 1;
+}
+
+/* Botões */
+.banner-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 120px;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 50px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 40px;
-  text-align: center;
+  transition: background 0.3s;
 }
 
-/* SEÇÕES */
+.banner-btn-left { left: 0; }
+.banner-btn-right { right: 0; }
 
+.banner-btn:hover { background: rgba(0,0,0,0.6); }
+
+/* Produtos */
 section {
   padding: 50px;
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 40px;
-  font-size: 32px;
-}
-
-/* PRODUTOS */
+h2 { margin-bottom: 40px; font-size: 32px; }
 
 .produtos {
   display: flex;
@@ -66,41 +77,17 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* IMAGENS DOS PRODUTOS */
+.card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
+.sobre { background: #f5f5f5; }
 
-/* SOBRE */
-
-.sobre {
-  background: #f5f5f5;
-}
-
-/* FOOTER */
-
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-/* BOTÕES FLUTUANTES */
+footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; }
 
 .botoes-flutuantes {
   position: fixed;
@@ -112,71 +99,18 @@ footer {
   z-index: 999;
 }
 
-.botoes-flutuantes a {
-  display: block;
-  width: 50px;
-  transition: 0.3s;
-}
+.botoes-flutuantes a img { width: 50px; }
 
-.botoes-flutuantes img {
-  width: 50px;
-}
+.botoes-flutuantes a:hover { transform: scale(1.15); }
 
-/* EFEITO AO PASSAR O MOUSE */
-
-.botoes-flutuantes a:hover {
-  transform: scale(1.15);
-}
-
-/* PARA USAR NO CELULAR */
-
+/* Responsivo */
 @media (max-width: 768px) {
-  header {
-    padding: 30px;
-  }
-
-  header h1 {
-    font-size: 28px;
-  }
-
-  header p {
-    font-size: 16px;
-  }
-
-  .banner {
-    height: 250px;
-    font-size: 24px;
-    padding: 20px;
-  }
-
-  section {
-    padding: 30px 20px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  /* PRODUTOS */
-
-  .produtos {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  /* BOTÕES FLUTUANTES */
-
-  .botoes-flutuantes {
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .botoes-flutuantes img {
-    width: 45px;
-  }
+  header { padding: 15px; }
+  .banner-container { height: 250px; }
+  section { padding: 30px 20px; }
+  h2 { font-size: 24px; }
+  .produtos { flex-direction: column; align-items: center; }
+  .card { width: 90%; max-width: 350px; }
+  .botoes-flutuantes { bottom: 15px; right: 15px; }
+  .botoes-flutuantes img { width: 45px; }
 }
