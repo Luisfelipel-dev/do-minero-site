@@ -1,26 +1,54 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const slides = document.querySelectorAll(".banner-slide");
-  let current = 0;
+const slides = document.querySelectorAll(".banner-slide");
+const btnNext = document.querySelector(".banner-btn-right");
+const btnPrev = document.querySelector(".banner-btn-left");
 
-  function showSlide(index) {
-    slides.forEach((slide) => {
-      slide.classList.remove("active");
-    });
+let current = 0;
+let autoPlayInterval;
 
-    slides[index].classList.add("active");
-  }
+function showSlide(index) {
+slides.forEach(slide => slide.classList.remove("active"));
+slides[index].classList.add("active");
+}
 
-  window.nextBanner = function () {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  };
+function nextBanner() {
+current = (current + 1) % slides.length;
+showSlide(current);
+}
 
-  window.prevBanner = function () {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-  };
+function prevBanner() {
+current = (current - 1 + slides.length) % slides.length;
+showSlide(current);
+}
 
-  showSlide(current);
+/* =========================
+EVENTOS
+========================= */
+btnNext.addEventListener("click", nextBanner);
+btnPrev.addEventListener("click", prevBanner);
+
+/* =========================
+AUTOPLAY (PROFISSIONAL)
+========================= */
+function startAutoPlay() {
+autoPlayInterval = setInterval(nextBanner, 4000); // troca a cada 4s
+}
+
+function stopAutoPlay() {
+clearInterval(autoPlayInterval);
+}
+
+/* Pausa ao passar o mouse */
+const banner = document.querySelector(".banner-container");
+
+banner.addEventListener("mouseenter", stopAutoPlay);
+banner.addEventListener("mouseleave", startAutoPlay);
+
+/* =========================
+INICIALIZAÇÃO
+========================= */
+showSlide(current);
+startAutoPlay();
 
 });

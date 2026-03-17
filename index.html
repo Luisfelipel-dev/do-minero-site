@@ -1,91 +1,138 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Minero - Pão de Queijaria</title>
-    <link rel="stylesheet" href="./style.css">
+
+```
+<title>Do Minero - Pão de Queijaria</title>
+
+<!-- SEO -->
+<meta name="description" content="Do Minero Pão de Queijaria - Pães de queijo artesanais com sabor mineiro. Tradicional, goiabada, bacon e muito mais.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Do Minero Pão de Queijaria">
+<meta property="og:description" content="O verdadeiro pão de queijo mineiro artesanal.">
+<meta property="og:image" content="./imagens/logo minero.jpeg">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="./imagens/favicon.ico">
+
+<!-- CSS -->
+<link rel="stylesheet" href="./style.css">
+```
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <img src="./imagens/logo minero.jpeg" alt="Logo Do Minero" class="logo">
-    </header>
+```
+<!-- H1 para SEO (oculto visualmente) -->
+<h1 class="visually-hidden">Do Minero Pão de Queijaria</h1>
 
-    <!-- BANNER FUNCIONAL -->
-    <section class="banner-container">
+<!-- HEADER -->
+<header>
+    <img src="./imagens/logo minero.jpeg" alt="Logo Do Minero Pão de Queijaria" class="logo">
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main>
+
+    <!-- BANNER -->
+    <section class="banner-container" aria-label="Banner de destaques">
 
         <div class="banner-slide active" style="background-image: url('./imagens/banner0.jpg');"></div>
         <div class="banner-slide" style="background-image: url('./imagens/banner1.jpg');"></div>
         <div class="banner-slide" style="background-image: url('./imagens/banner2.jpg');"></div>
         <div class="banner-slide" style="background-image: url('./imagens/banner3.jpg');"></div>
 
-        <button class="banner-btn banner-btn-left" onclick="prevBanner()">❮</button>
-        <button class="banner-btn banner-btn-right" onclick="nextBanner()">❯</button>
+        <button class="banner-btn banner-btn-left" aria-label="Banner anterior">❮</button>
+        <button class="banner-btn banner-btn-right" aria-label="Próximo banner">❯</button>
 
     </section>
 
     <!-- PRODUTOS -->
-    <section class="produtos-section">
-        <h2>Nossos Produtos</h2>
+    <section class="produtos-section" aria-labelledby="produtos-titulo">
+        <h2 id="produtos-titulo">Nossos Produtos</h2>
+
         <div class="produtos">
-            <div class="card">
-                <img src="./imagens/pao1.jpeg" alt="Tradicional">
+
+            <article class="card">
+                <img src="./imagens/pao1.jpeg" alt="Pão de queijo tradicional" loading="lazy">
                 <h3>Tradicional</h3>
                 <p>O clássico pão de queijo mineiro, crocante por fora e macio por dentro.</p>
-            </div>
-            <div class="card">
-                <img src="./imagens/pao2.jpeg" alt="Goiabada">
+            </article>
+
+            <article class="card">
+                <img src="./imagens/pao2.jpeg" alt="Pão de queijo com goiabada" loading="lazy">
                 <h3>Goiabada</h3>
                 <p>A combinação perfeita entre o queijo e o doce da goiabada.</p>
-            </div>
-            <div class="card">
-                <img src="./imagens/pao3.jpeg" alt="Linguiça Blumenau">
+            </article>
+
+            <article class="card">
+                <img src="./imagens/pao3.jpeg" alt="Pão de queijo com linguiça Blumenau" loading="lazy">
                 <h3>Linguiça Blumenau</h3>
                 <p>Um sabor marcante com a tradicional linguiça Blumenau.</p>
-            </div>
-            <div class="card">
-                <img src="./imagens/pao4.jpeg" alt="Alho e ervas">
+            </article>
+
+            <article class="card">
+                <img src="./imagens/pao4.jpeg" alt="Pão de queijo com alho e ervas finas" loading="lazy">
                 <h3>Alho com Ervas Finas</h3>
                 <p>Uma mistura aromática que deixa o pão de queijo ainda mais especial.</p>
-            </div>
-            <div class="card">
-                <img src="./imagens/pao5.jpeg" alt="Bacon">
+            </article>
+
+            <article class="card">
+                <img src="./imagens/pao5.jpeg" alt="Pão de queijo com bacon" loading="lazy">
                 <h3>Bacon</h3>
                 <p>Para quem ama bacon, um pão de queijo com sabor intenso.</p>
-            </div>
+            </article>
+
         </div>
     </section>
 
     <!-- SOBRE -->
-    <section class="sobre">
+    <section class="sobre" aria-labelledby="sobre-titulo">
         <div class="sobre-card">
-            <h2>Sobre Nós</h2>
+            <h2 id="sobre-titulo">Sobre Nós</h2>
+
             <p>
-                A Do Minero nasceu do meu amor pelo pão de queijo e da vontade de compartilhar essa tradição mineira com todos. Cresci vendo minha família preparar essa delícia com carinho, e ao longo dos anos aprendi cada detalhe da receita perfeita. Hoje, transformo essa paixão em cada fornada, garantindo que cada pão de queijo tenha sabor caseiro, feito com ingredientes de qualidade e muito afeto. Nossa missão é levar um pedacinho de Minas para o seu dia a dia.
+                A Do Minero nasceu do meu amor pelo pão de queijo e da vontade de compartilhar essa tradição mineira com todos.
+                Cresci vendo minha família preparar essa delícia com carinho e, ao longo dos anos, aprendi cada detalhe da receita perfeita.
+            </p>
+
+            <p>
+                Hoje, transformo essa paixão em cada fornada, garantindo que cada pão de queijo tenha sabor caseiro,
+                feito com ingredientes de qualidade e muito afeto. Nossa missão é levar um pedacinho de Minas para o seu dia a dia.
             </p>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Do Minero Pão de Queijaria</p>
-    </footer>
+</main>
 
-    <!-- BOTÕES FLUTUANTES -->
-    <div class="botoes-flutuantes">
-        <a href="https://wa.me/5547999977697" target="_blank" class="btn-whatsapp">
-            <img src="./imagens/whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/domineropaodequeijaria/" target="_blank" class="btn-instagram">
-            <img src="./imagens/instagram.png" alt="Instagram">
-        </a>
-    </div>
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Do Minero Pão de Queijaria</p>
+</footer>
 
-    <script src="script.js"></script>
+<!-- BOTÕES FLUTUANTES -->
+<div class="botoes-flutuantes">
+
+    <a href="https://wa.me/5547999977697" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+        <img src="./imagens/whatsapp.png" alt="Falar no WhatsApp">
+    </a>
+
+    <a href="https://www.instagram.com/domineropaodequeijaria/" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+        <img src="./imagens/instagram.png" alt="Visitar Instagram">
+    </a>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+```
+
 </body>
-
 </html>

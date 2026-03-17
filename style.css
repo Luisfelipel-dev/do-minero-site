@@ -1,183 +1,267 @@
-/* RESET E FONTES */
-body {
+/* =========================
+RESET E BASE
+========================= */
+
+* {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fff;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #fff;
+color: #333;
+line-height: 1.5;
 }
 
-/* HEADER */
+/* Classe para acessibilidade (H1 oculto) */
+.visually-hidden {
+position: absolute;
+left: -9999px;
+}
+
+/* =========================
+HEADER
+========================= */
+header {
+padding: 20px 0;
+}
+
 header .logo {
-  display: block;
-  margin: 0 auto;
-  max-width: 300px;
-  height: auto;
+display: block;
+margin: 0 auto;
+max-width: 300px;
+height: auto;
 }
 
-/* BANNER COM FADE */
+/* =========================
+BANNER
+========================= */
 .banner-container {
-  position: relative;
-  height: 450px;
-  overflow: hidden;
-  margin-top: -10px; 
+position: relative;
+height: 450px;
+overflow: hidden;
 }
 
 .banner-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1s ease;
+position: absolute;
+inset: 0;
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 0.8s ease-in-out;
 }
 
 .banner-slide.active {
-  opacity: 1;
+opacity: 1;
 }
 
-/* BOTÕES DO BANNER */
+/* BOTÕES */
 .banner-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 120px;
-  background: rgba(0,0,0,0.3);
-  color: white;
-  font-size: 50px;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+width: 55px;
+height: 110px;
+background: rgba(0, 0, 0, 0.35);
+color: #fff;
+font-size: 40px;
+border: none;
+cursor: pointer;
+z-index: 10;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: background 0.3s, transform 0.2s;
 }
 
 .banner-btn-left { left: 0; }
 .banner-btn-right { right: 0; }
 
-.banner-btn:hover { background: rgba(0,0,0,0.6); }
-
-/* PRODUTOS */
-section.produtos-section {
-  padding: 50px;
-  text-align: center;
+.banner-btn:hover {
+background: rgba(0, 0, 0, 0.6);
+transform: translateY(-50%) scale(1.05);
 }
 
-section.produtos-section h2 {
-  color: #d35400;      /* COR DO TÍTULO PRODUTOS */
-  margin-bottom: 40px; 
-  font-size: 32px;
+/* =========================
+PRODUTOS
+========================= */
+.produtos-section {
+padding: 60px 20px;
+text-align: center;
+}
+
+.produtos-section h2 {
+color: #d35400;
+margin-bottom: 40px;
+font-size: 32px;
 }
 
 .produtos {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+display: flex;
+justify-content: center;
+gap: 30px;
+flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+width: 250px;
+border: 1px solid #eee;
+border-radius: 12px;
+padding: 20px;
+background: #fff;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+transform: translateY(-6px);
+box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 10px;
+}
+
+.card h3 {
+margin: 15px 0 10px;
+font-size: 20px;
+}
+
+.card p {
+font-size: 14px;
+color: #555;
+}
+
+/* =========================
+SOBRE
+========================= */
+.sobre {
+background: #f5f5f5;
+padding: 60px 20px;
+display: flex;
+justify-content: center;
+}
+
+.sobre-card {
+background: #fff;
+max-width: 800px;
+padding: 40px 30px;
+border-radius: 16px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+text-align: center;
+line-height: 1.7;
+font-size: 18px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sobre-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+.sobre-card h2 {
+color: #d35400;
+margin-bottom: 20px;
+font-size: 28px;
+position: relative;
+}
+
+.sobre-card h2::after {
+content: '';
+display: block;
+width: 60px;
+height: 3px;
+background: #d35400;
+margin: 10px auto 0;
+border-radius: 2px;
+}
+
+/* =========================
+FOOTER
+========================= */
+footer {
+background: #222;
+color: #fff;
+text-align: center;
+padding: 20px;
+margin-top: 40px;
+font-size: 14px;
+}
+
+/* =========================
+BOTÕES FLUTUANTES
+========================= */
+.botoes-flutuantes {
+position: fixed;
+bottom: 20px;
+right: 20px;
+display: flex;
+flex-direction: column;
+gap: 15px;
+z-index: 999;
+}
+
+.botoes-flutuantes a {
+transition: transform 0.2s ease;
+}
+
+.botoes-flutuantes a img {
+width: 50px;
+display: block;
+}
+
+.botoes-flutuantes a:hover {
+transform: scale(1.15);
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+
+header {
+padding: 15px 0;
+}
+
+.banner-container {
+height: 260px;
+}
+
+.produtos-section {
+padding: 40px 15px;
+}
+
+.produtos-section h2 {
+font-size: 24px;
+}
+
+.produtos {
+flex-direction: column;
+align-items: center;
 }
 
 .card {
-  width: 250px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
+width: 90%;
+max-width: 350px;
 }
 
-.card:hover { 
-  transform: translateY(-5px); 
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+.sobre-card {
+padding: 30px 20px;
+font-size: 16px;
 }
 
-.card img { 
-  width: 100%; 
-  height: 200px; 
-  object-fit: cover; 
-  border-radius: 10px; 
-}
-
-/* SOBRE NÓS ESTILIZADO COMO CARD PREMIUM */
-.sobre { 
-  background: #f5f5f5; 
-  padding: 60px 20px;          
-  display: flex;
-  justify-content: center;     
-}
-
-.sobre .sobre-card {
-  background: #fff;            
-  max-width: 800px;            
-  padding: 40px 30px;          
-  border-radius: 15px;         
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
-  text-align: center;
-  line-height: 1.6;
-  font-size: 18px;
-  color: #333;
-  transition: transform 0.3s, box-shadow 0.3s; /* efeito suave */
-}
-
-.sobre .sobre-card:hover {
-  transform: translateY(-8px);                /* card “levanta” */
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);   /* sombra mais intensa */
-}
-
-.sobre .sobre-card h2 {
-  color: #d35400;        /* cor do título sobre nós */
-  margin-bottom: 20px;
-  font-size: 28px;
-  position: relative;
-}
-
-.sobre .sobre-card h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #d35400;   
-  margin: 10px auto 0 auto;
-  border-radius: 2px;
-}
-
-/* FOOTER */
-footer { 
-  background: #222; 
-  color: white; 
-  text-align: center; 
-  padding: 20px; 
-  margin-top: 40px; 
-}
-
-/* BOTÕES FLUTUANTES */
 .botoes-flutuantes {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 999;
+bottom: 15px;
+right: 15px;
 }
 
-.botoes-flutuantes a img { 
-  width: 50px; 
+.botoes-flutuantes img {
+width: 45px;
 }
-
-.botoes-flutuantes a:hover { 
-  transform: scale(1.15); 
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  header { padding: 15px; }
-  .banner-container { height: 250px; }
-  section { padding: 30px 20px; }
-  h2 { font-size: 24px; }
-  .produtos { flex-direction: column; align-items: center; }
-  .card { width: 90%; max-width: 350px; }
-  .botoes-flutuantes { bottom: 15px; right: 15px; }
-  .botoes-flutuantes img { width: 45px; }
 }
