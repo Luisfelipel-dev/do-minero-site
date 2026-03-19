@@ -1,265 +1,239 @@
-RESET E BASE
-
+/* ===== RESET E BASE ====== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
+}
 
 body {
-font-family: Arial, Helvetica, sans-serif;
-background: #fff;
-color: #333;
-line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.5;
+  font-size: 16px;
 }
 
-/* Classe para acessibilidade (H1 oculto) */
 .visually-hidden {
-position: absolute;
-left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
 
-/* =========================
-HEADER
-========================= */
+/* ===== HEADER ====== */
 header {
-padding: 20px 0;
+  padding: 20px 0;
 }
 
 header .logo {
-display: block;
-margin: 0 auto;
-max-width: 300px;
-height: auto;
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  max-width: 100%;
 }
 
-/* =========================
-BANNER
-========================= */
+/* ====== BANNER ======= */
 .banner-container {
-position: relative;
-height: 450px;
-overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 520px;
+  overflow: hidden;
 }
 
 .banner-slide {
-position: absolute;
-inset: 0;
-background-size: cover;
-background-position: center;
-opacity: 0;
-transition: opacity 0.8s ease-in-out;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .banner-slide.active {
-opacity: 1;
+  opacity: 1;
 }
 
 /* BOTÕES */
 .banner-btn {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-width: 55px;
-height: 110px;
-background: rgba(0, 0, 0, 0.35);
-color: #fff;
-font-size: 40px;
-border: none;
-cursor: pointer;
-z-index: 10;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: background 0.3s, transform 0.2s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 36px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner-btn-left { left: 0; }
 .banner-btn-right { right: 0; }
 
-.banner-btn:hover {
-background: rgba(0, 0, 0, 0.6);
-transform: translateY(-50%) scale(1.05);
-}
-
-/* =========================
-PRODUTOS
-========================= */
+/* ==== PRODUTOS ===== */
 .produtos-section {
-padding: 60px 20px;
-text-align: center;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .produtos-section h2 {
-color: #d35400;
-margin-bottom: 40px;
-font-size: 32px;
+  color: #d35400;
+  margin-bottom: 40px;
+  font-size: 32px;
 }
 
+/* GRID  */
 .produtos {
-display: flex;
-justify-content: center;
-gap: 30px;
-flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* mobile padrão */
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .produtos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .produtos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* TELAS GRANDES */
+@media (min-width: 1400px) {
+  .produtos {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 /* CARD */
 .card {
-width: 250px;
-border: 1px solid #eee;
-border-radius: 12px;
-padding: 20px;
-background: #fff;
-box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-transform: translateY(-6px);
-box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
 }
 
 .card img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-border-radius: 10px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .card h3 {
-margin: 15px 0 10px;
-font-size: 20px;
+  margin: 12px 0 8px;
+  font-size: 18px;
 }
 
 .card p {
-font-size: 14px;
-color: #555;
+  font-size: 14px;
+  color: #555;
 }
 
-/* =========================
-SOBRE
-========================= */
+/* ====== SOBRE ======= */
 .sobre {
-background: #f5f5f5;
-padding: 60px 20px;
-display: flex;
-justify-content: center;
+  background: #f5f5f5;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .sobre-card {
-background: #fff;
-max-width: 800px;
-padding: 40px 30px;
-border-radius: 16px;
-box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-text-align: center;
-line-height: 1.7;
-font-size: 18px;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sobre-card:hover {
-transform: translateY(-8px);
-box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  background: #fff;
+  max-width: 900px;
+  width: 100%;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  text-align: center;
+  line-height: 1.7;
+  font-size: 18px;
 }
 
 .sobre-card h2 {
-color: #d35400;
-margin-bottom: 20px;
-font-size: 28px;
-position: relative;
+  color: #d35400;
+  margin-bottom: 20px;
+  font-size: 28px;
 }
 
 .sobre-card h2::after {
-content: '';
-display: block;
-width: 60px;
-height: 3px;
-background: #d35400;
-margin: 10px auto 0;
-border-radius: 2px;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #d35400;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
-/* =========================
-FOOTER
-========================= */
+/* ===== FOOTER ====== */
 footer {
-background: #222;
-color: #fff;
-text-align: center;
-padding: 20px;
-margin-top: 40px;
-font-size: 14px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
 }
 
-/* =========================
-BOTÕES FLUTUANTES
-========================= */
+/* ====== BOTÕES FLUTUANTES ======== */
 .botoes-flutuantes {
-position: fixed;
-bottom: 20px;
-right: 20px;
-display: flex;
-flex-direction: column;
-gap: 15px;
-z-index: 999;
-}
-
-.botoes-flutuantes a {
-transition: transform 0.2s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
 }
 
 .botoes-flutuantes a img {
-width: 50px;
-display: block;
+  width: 50px;
+  transition: transform 0.2s ease;
 }
 
-.botoes-flutuantes a:hover {
-transform: scale(1.15);
+.botoes-flutuantes a:hover img {
+  transform: scale(1.15);
 }
 
-/* =========================
-RESPONSIVO
-========================= */
+/* ====== AJUSTES MOBILE ======= */
 @media (max-width: 768px) {
 
-header {
-padding: 15px 0;
-}
+  .banner-container {
+    aspect-ratio: 16 / 10;
+  }
 
-.banner-container {
-height: 260px;
-}
+  .banner-btn {
+    width: 40px;
+    height: 80px;
+    font-size: 26px;
+  }
 
-.produtos-section {
-padding: 40px 15px;
-}
+  .produtos-section h2 {
+    font-size: 24px;
+  }
 
-.produtos-section h2 {
-font-size: 24px;
-}
-
-.produtos {
-flex-direction: column;
-align-items: center;
-}
-
-.card {
-width: 90%;
-max-width: 350px;
-}
-
-.sobre-card {
-padding: 30px 20px;
-font-size: 16px;
-}
-
-.botoes-flutuantes {
-bottom: 15px;
-right: 15px;
-}
-
-.botoes-flutuantes img {
-width: 45px;
-}
+  .sobre-card {
+    font-size: 16px;
+    padding: 25px 20px;
+  }
 }
